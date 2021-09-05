@@ -10,7 +10,13 @@ const scopes = [
     "user-modify-playback-state",
   ];
   
+  export const getTokenFromUrl=() => {
+      return window.location.hash
+      .substring(14)
+      .split('&')[0]    
+  }
   
   export const loginUrl = `${authEndpoint}?client_id=${clientId}&redirect_uri=${redirectUri}&scope=${scopes.join(
     "%20"
   )}&response_type=token&show_dialog=true`;
+
