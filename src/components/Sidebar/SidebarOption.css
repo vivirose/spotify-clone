@@ -1,0 +1,13 @@
+.sidebarOption{
+    display: grid;
+    width: 200px;
+    grid-template-columns: auto auto;
+    align-items: center;
+    text-align: start;
+}
+
+.sidebarOption__icon {
+    width: 30px;
+    height: 40px;
+    border-right: 20px;
+}
