@@ -1,7 +1,6 @@
 .sidebarOption{
     display: grid;
-    width: 200px;
-    grid-template-columns: auto auto;
+    grid-template-columns: 32px 1fr;
     align-items: center;
     text-align: start;
 }

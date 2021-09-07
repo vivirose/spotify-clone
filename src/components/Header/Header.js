@@ -10,7 +10,7 @@ function Header(){
                 type="search"
                 placeholder="Artists, songs, or podcasts"
             />
-            <div>
+            <div className="header__profile">
                 <img 
                     className="header__profilePicture"
                     src={profilePhoto}
