@@ -7,26 +7,25 @@ import Player from './components/Player/Player';
 import { userValues } from "./context/auth";
 import UserContext from "./context/auth";
 
-const spotify = new SpotifyWebApi();
+const _token = getTokenFromUrl();
 
 
 function App() {
   const [token, setToken] = useState();
 
   useEffect(() => {
-    const _token = getTokenFromUrl();
     console.log('token', _token);
     window.location.hash = '';
     
     if (_token){
       setToken(_token);
-      spotify.setAccessToken(_token);
+    
     }
   })
 
   return (
     <UserContext.Provider value={userValues}>
-      <div className="app">{token ? <Player spotify={spotify}/> : <Login />}</div>
+      <div className="app">{token ? <Player /> : <Login />}</div>
       </UserContext.Provider>
   );
 }
