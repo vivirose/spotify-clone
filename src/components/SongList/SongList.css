@@ -1,0 +1,21 @@
+.songlist{
+    grid-column: 2;
+    grid-row: 2 / span 1;
+}
+
+.songlist__track{
+    font-weight: bold;
+}
+
+.songlist__songs{
+    padding: 10px;
+}
+
+.songlist__title{
+    padding: 15px;
+}
+
+.songlist__artist{
+    padding: 15px;
+}
+

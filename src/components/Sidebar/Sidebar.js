@@ -4,18 +4,21 @@ import HomeIcon from "@material-ui/icons/Home";
 import SearchIcon from "@material-ui/icons/Search";
 import { LibraryMusic } from "@material-ui/icons";
 import "./Sidebar.css";
-import { spotify, token } from "../../api/spotify";
+import { spotify } from "../../api/spotify";
 
 
 
-function Sidebar() {  
+function Sidebar({onSelectPlaylist}) { 
+    const [playlist, setPlaylist] = React.useState([]); 
+
 
     useEffect(() => {
         spotify.getUserPlaylists().then(function (userPlaylists){
-            return userPlaylists.items
-        })
-        }
-    )
+             setPlaylist(userPlaylists.items);
+            })
+    }, []);
+        
+
     return(
         <div className="sidebar">
         <img
@@ -30,6 +33,7 @@ function Sidebar() {
             <br />
             <strong className="sidebar__title">PLAYLISTS</strong>
             <hr />
+            {playlist.map(item => <p onClick={() => onSelectPlaylist(item.id)}> {item.name}</p>)}
         </div>
 
         </div>

@@ -6,8 +6,8 @@
 
 .sidebar{
     grid-column: 1 / span 1;
-    grid-row: 1;
-    background-color: orchid;
+    grid-row: 1 / span 2;
+    background-color: black;
 }
 
 .sidebar__itemList{

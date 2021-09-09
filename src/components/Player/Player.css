@@ -7,5 +7,6 @@
     margin: 0px;
     display: grid;
     grid-template-columns: 200px auto;
+    grid-template-rows: 111px auto 140px;
 
 }
