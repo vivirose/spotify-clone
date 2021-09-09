@@ -16,8 +16,7 @@ function Sidebar({onSelectPlaylist}) {
         spotify.getUserPlaylists().then(function (userPlaylists){
              setPlaylist(userPlaylists.items);
             })
-    }, []);
-        
+    }, []); 
 
     return(
         <div className="sidebar">

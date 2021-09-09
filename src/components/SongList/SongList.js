@@ -2,19 +2,22 @@ import React, { useEffect, useState } from 'react';
 import "./SongList.css";
 import { spotify } from "../../api/spotify";
 
-function SongList({playlistId}){
-
+function SongList({playlistId = '37i9dQZF1DXcLDm348RRYK'}){
+    const [data, setData] = useState({total: 1});
     const [songs, setSongs] = useState([]);
+    console.log("data", data);
 
     useEffect(() => {
         spotify.getPlaylistTracks(playlistId).then(function (PlaylistTracks){
-            setSongs(PlaylistTracks.items)
-        })
-    },[])
-    console.log(songs)
+            const { items, ...data } = PlaylistTracks;
+            setSongs(items);
+            setData(data);
+        });
+    },[playlistId]);
+
     return(
         <div className="songlist">
-            <h1 className="songlist__title">My Favorite Songs</h1>
+            <h1 className="songlist__title">total playlist: {data.total}</h1>
             <hr />
                 {songs.map(item => <div className="songlist__songs">
                     <img className="songlist__cover" src={item.track.album.images[2].url}/>
