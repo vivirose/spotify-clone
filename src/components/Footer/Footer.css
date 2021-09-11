@@ -10,6 +10,9 @@
    padding: 10px;
    background-color: #181818;
    grid-row: 3 / span 1;
+   display: grid;
+   grid-template-columns: 450px 500px 450px;
+   align-items: center;
 }
 
 .footer__albumCover{
@@ -18,9 +21,15 @@
     padding: 10px;
 }
 
-.footerLeft{
+.footer__left{
     width: 220px;
     display: grid;
     align-items: center;
     grid-template-columns: auto auto;
+    grid-column: 1 / span 1;
+}
+
+.footer__center{
+    display: flex;
+    justify-content: center;
 }
