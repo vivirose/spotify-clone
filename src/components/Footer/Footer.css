@@ -25,7 +25,8 @@
     width: 220px;
     display: grid;
     align-items: center;
-    grid-template-columns: auto auto;
+    grid-template-columns: auto 300px;
+    grid-gap: 10px;
     grid-column: 1 / span 1;
 }
 

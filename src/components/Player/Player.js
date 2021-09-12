@@ -8,13 +8,14 @@ import "./Player.css";
 function Player() {
 
     const [playlistId, setPlaylistId] = React.useState();
+    const [trackId, setTrackId] = React.useState();
 
     return(
         <div className="player">
             <Header />
             <Sidebar onSelectPlaylist={setPlaylistId} />
-            <SongList playlistId={playlistId} />
-            <Footer/>
+            <SongList playlistId={playlistId} onSelectSong={setTrackId}/>
+            <Footer trackId={trackId}/>
         </div>)
 }
 
