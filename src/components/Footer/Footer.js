@@ -6,45 +6,51 @@ import { spotify } from "../../api/spotify";
 function Footer({trackId = '0iifbrIaoCheb4HbbH4bwP'}){
 
     const [track, setTrack] = useState({});
+    const [infoTrack, setInfoTrack] = useState();
+    const [isPlaying, setIsPlaying] = useState(false);
     console.log("track", track)
     console.log("trackid", trackId)
     
     useEffect(() => {
         spotify.getTrack(trackId).then(function (Track){
-            console.log("track1", Track);
             setTrack(Track);
         });
         
     },[trackId]);
 
-    // spotify.play({
-    //     "context_uri": track.album.uri,
-    //     "offset": {
-    //       "position": track.track_number - 1
-    //     },
-    //     "position_ms": 0
-    //   })
     
-    // spotify.pause()
-    // var music = new Audio("");
-    var isPlaying = false;
 
-    function togglePlay() {
-        isPlaying ? spotify.pause() : spotify.play({
+    async function togglePlay() {
+        if (isPlaying) {
+            setIsPlaying(false);
+            spotify.pause();
+            const info = await spotify.getMyCurrentPlayingTrack();
+            console.log('info', info);
+            setInfoTrack(info);
+
+         } else {
+             spotify.play({
             "context_uri": track.album.uri,
             "offset": {
               "position": track.track_number - 1
             },
-            "position_ms": 0
+            "position_ms": infoTrack?.progress_ms || 0
           });
+          setIsPlaying(true);
+        }
     };
-    
-    // music.onplaying = function() {
-    //     isPlaying = true;
-    // };
-    // music.onpause = function() {
-    //     isPlaying = false;
-    // };
+
+    async function nextSong() {
+        await spotify.skipToNext();
+        const newTrack = await spotify.getMyCurrentPlayingTrack();
+        setTrack(newTrack.item)
+    };
+
+    async function previousSong() {
+        await spotify.skipToPrevious();
+        const newTrack = await spotify.getMyCurrentPlayingTrack();
+        setTrack(newTrack.item)
+    };
     
     return(
         <div className="footer">
@@ -61,9 +67,12 @@ function Footer({trackId = '0iifbrIaoCheb4HbbH4bwP'}){
                     </div>
                     </div>
                     <div className="footer__center">
-                        <button><i className="material-icons">skip_previous</i></button>
-                        <button onClick={togglePlay}><i className="material-icons">play_circle_outline</i></button>
-                        <button><i className="material-icons">skip_next</i></button>
+                        <button onClick={previousSong}><i className="material-icons">skip_previous</i></button>
+                        <button onClick={togglePlay}> 
+                        {isPlaying ? <i className="material-icons">pause_circle</i> :
+                         <i className="material-icons">play_circle_outline</i>}
+                        </button>
+                        <button onClick={nextSong}><i className="material-icons">skip_next</i></button>
                     </div>
                 </>)
 
