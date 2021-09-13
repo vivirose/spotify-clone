@@ -30,7 +30,7 @@ function Footer({trackId = '0iifbrIaoCheb4HbbH4bwP'}){
 
          } else {
              spotify.play({
-            "context_uri": track.album.uri,
+            "context_uri":  track.album.uri,
             "offset": {
               "position": track.track_number - 1
             },
@@ -40,18 +40,12 @@ function Footer({trackId = '0iifbrIaoCheb4HbbH4bwP'}){
         }
     };
 
-    async function nextSong() {
-        await spotify.skipToNext();
+    async function changeSong(controller) {
+        controller == 'next' ? await spotify.skipToNext() : await spotify.skipToPrevious();
         const newTrack = await spotify.getMyCurrentPlayingTrack();
-        setTrack(newTrack.item)
+        setTrack(newTrack.item);
     };
 
-    async function previousSong() {
-        await spotify.skipToPrevious();
-        const newTrack = await spotify.getMyCurrentPlayingTrack();
-        setTrack(newTrack.item)
-    };
-    
     return(
         <div className="footer">
             {
@@ -67,12 +61,12 @@ function Footer({trackId = '0iifbrIaoCheb4HbbH4bwP'}){
                     </div>
                     </div>
                     <div className="footer__center">
-                        <button onClick={previousSong}><i className="material-icons">skip_previous</i></button>
+                        <button onClick={() => changeSong("previous")}><i className="material-icons">skip_previous</i></button>
                         <button onClick={togglePlay}> 
                         {isPlaying ? <i className="material-icons">pause_circle</i> :
                          <i className="material-icons">play_circle_outline</i>}
                         </button>
-                        <button onClick={nextSong}><i className="material-icons">skip_next</i></button>
+                        <button onClick={() => changeSong("next")}><i className="material-icons">skip_next</i></button>
                     </div>
                 </>)
 
