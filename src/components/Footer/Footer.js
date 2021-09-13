@@ -17,20 +17,34 @@ function Footer({trackId = '0iifbrIaoCheb4HbbH4bwP'}){
         
     },[trackId]);
 
-
-    var music = new Audio("http://commondatastorage.googleapis.com/codeskulptor-demos/DDR_assets/Sevish_-__nbsp_.mp3");
+    // spotify.play({
+    //     "context_uri": track.album.uri,
+    //     "offset": {
+    //       "position": track.track_number - 1
+    //     },
+    //     "position_ms": 0
+    //   })
+    
+    // spotify.pause()
+    // var music = new Audio("");
     var isPlaying = false;
 
     function togglePlay() {
-        isPlaying ? music.pause() : music.play();
+        isPlaying ? spotify.pause() : spotify.play({
+            "context_uri": track.album.uri,
+            "offset": {
+              "position": track.track_number - 1
+            },
+            "position_ms": 0
+          });
     };
     
-    music.onplaying = function() {
-        isPlaying = true;
-    };
-    music.onpause = function() {
-        isPlaying = false;
-    };
+    // music.onplaying = function() {
+    //     isPlaying = true;
+    // };
+    // music.onpause = function() {
+    //     isPlaying = false;
+    // };
     
     return(
         <div className="footer">
