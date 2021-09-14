@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import "./SongList.css";
 import { spotify } from "../../api/spotify";
 
-function SongList({playlistId = '37i9dQZF1DXcLDm348RRYK', onSelectSong}){
+function SongList({playlistId = '37i9dQZF1DWVmps5U8gHNv', onSelectSong}){
     const [data, setData] = useState({total: 1});
     const [songs, setSongs] = useState([]);
     console.log("data", songs);
