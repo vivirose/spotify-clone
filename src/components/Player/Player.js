@@ -8,10 +8,9 @@ import "./Player.css";
 import Artist from "../Artist/Artist";
 
 function Player() {
-    const [query, setQuery] = useState("");
+    let [query, setQuery] = useState("");
     const [playlistId, setPlaylistId] = useState("37i9dQZF1DWVmps5U8gHNv");
-    const [artist, setArtist] = useState(null)
-    const [data, setData] = useState({total: 1});
+    const [artist, setArtist] = useState("")
     const [songs, setSongs] = useState([]);
     const [trackId, setTrackId] = useState();
     console.log("songs", songs);
@@ -20,20 +19,23 @@ function Player() {
     // get tracks based on playlist id
     useEffect(() => {
         spotify.getPlaylistTracks(playlistId).then(function (PlaylistTracks){
-            const { items, ...data } = PlaylistTracks;
+            const { items } = PlaylistTracks;
             setSongs(items);
-            setData(data);
         });
     },[playlistId]);
 
     // get tracks based on search results
     useEffect(() => {
-        spotify.search(query, ["track", "artist"]).then(function (result){
-            console.log("result", result)
-            setSongs(result.tracks.items);
-            setArtist(result.artists.items[0])
-        });
+        if (query != "") {
+            spotify.search(query, ["track", "artist"]).then(function (result){
+                console.log("result", result)
+                setSongs(result.tracks.items.slice(0, 5));
+                setArtist(result.artists.items[0])}
+                )
+            } else {setArtist("")}
+       
     }, [query]);
+
 
 
     return(
