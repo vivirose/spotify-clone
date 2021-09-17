@@ -10,3 +10,13 @@
     grid-template-rows: 111px 100vh 140px;
 
 }
+
+.searchResults{
+    display: grid;
+    grid-template-columns: 400px auto;
+}
+
+.searchResults__songlist{
+    grid-column: 2;
+    grid-row:1;
+}

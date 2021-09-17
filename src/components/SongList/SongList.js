@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import "./SongList.css";
 
 function SongList({songs, onSelectSong}){ 
@@ -16,9 +16,12 @@ function SongList({songs, onSelectSong}){
 
                     return (<div className="songlist__songs" onClick={() => onSelectSong(song.id)}>
                         <img className="songlist__cover" src={song.album.images[2].url}/>
-                        <p className="songlist__track">{song.name}</p> 
-                        <p className="songlist__artist">{song.artists[0].name}</p>
-                        <hr />
+                        <div className="songlist__info">
+                            <p className="songlist__track">{song.name}</p> 
+                            <p className="songlist__artist">{song.artists[0].name}</p>
+                        </div>
+                        <p className="songlist__album">{song.album.name}</p>
+                        <hr className="songlist__separator"/>
                     </div>)
                 })
             }

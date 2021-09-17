@@ -1,7 +1,11 @@
-.songlist{
+:host-context(.songlist){
     grid-column: 2;
     grid-row: 2 / span 1;
     overflow: auto;
+}
+
+.songlist__info{
+    text-align: left;
 }
 
 .songlist__track{
@@ -10,13 +14,25 @@
 
 .songlist__songs{
     padding: 10px;
+    display: grid;
+    grid-template-columns: 100px 400px auto;
+    align-items: center;
+}
+
+.songlist__songs:hover{
+    cursor: pointer;
+}
+
+.songlist__separator{
+    grid-column: 1 / span 3;
+    margin-top: 10px;
 }
 
 .songlist__title{
     padding: 15px;
 }
 
-.songlist__artist{
-    padding: 15px;
+.songlist__album{
+    text-align: left;
 }
 

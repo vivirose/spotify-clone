@@ -46,9 +46,10 @@ function Player() {
             />
             <Sidebar onSelectPlaylist={setPlaylistId} />
              { artist ? 
-                <div>
+                <div className="searchResults">
                     <Artist artist={artist}/>
                     <SongList 
+                        className="searchResults__songlist"
                         songs={songs}
                         onSelectSong={setTrackId}
                     /> 

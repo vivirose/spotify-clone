@@ -1,0 +1,10 @@
+.artist{
+    background-color: blueviolet;
+    padding: 40px;
+}
+
+.artist__photo{
+    border-radius: 50%;
+    height: 200px;
+    width: 200px;
+}
