@@ -15,7 +15,7 @@ function Player() {
     const [trackId, setTrackId] = useState();
     const [playlistName, setPlaylistName] = useState("Essential Folk");
     console.log("songs", songs);
-
+    console.log("bla")
 
     // get tracks based on playlist id
     useEffect(() => {
