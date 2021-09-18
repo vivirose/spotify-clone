@@ -33,7 +33,7 @@ function Sidebar({onSelectPlaylist}) {
             <strong className="sidebar__title">PLAYLISTS</strong>
             <hr />
             {playlist.map(item => <p className="sidebar__playlist"
-            onClick={() => onSelectPlaylist(item.id)}> {item.name}</p>)}
+            onClick={() => onSelectPlaylist(item.id, item.name)}> {item.name}</p>)}
         </div>
 
         </div>

@@ -13,6 +13,7 @@ function Player() {
     const [artist, setArtist] = useState("")
     const [songs, setSongs] = useState([]);
     const [trackId, setTrackId] = useState();
+    const [playlistName, setPlaylistName] = useState("Essential Folk");
     console.log("songs", songs);
 
 
@@ -36,6 +37,11 @@ function Player() {
        
     }, [query]);
 
+    const onSelectPlaylist = (id, name) => {
+        setPlaylistId(id);
+        setPlaylistName(name);
+        setArtist("");
+    }
 
 
     return(
@@ -44,20 +50,22 @@ function Player() {
                 query={query}
                 setQuery={setQuery}
             />
-            <Sidebar onSelectPlaylist={setPlaylistId} />
+            <Sidebar 
+            onSelectPlaylist={onSelectPlaylist} />
              { artist ? 
                 <div className="searchResults">
                     <Artist artist={artist}/>
                     <SongList 
-                        className="searchResults__songlist"
+                        styleName="searchResults__songlist"
                         songs={songs}
                         onSelectSong={setTrackId}
-                    /> 
-                </div> :
-            <SongList 
-                songs={songs}
-                onSelectSong={setTrackId}
-            />}
+                        /> 
+                </div> : <SongList 
+                    styleName="songlist"
+                    playlistName={playlistName}
+                    songs={songs}
+                    onSelectSong={setTrackId}
+                />}
             <Footer trackId={trackId}/>
         </div>)
 }

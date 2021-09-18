@@ -1,13 +1,14 @@
 .player{
-    background-color: orange;
+    background-color: #181818;
     color: white;
-    min-height: 100vh;
-    min-width: 100vw;
+    max-height: 100%;
     padding: 0px;
     margin: 0px;
     display: grid;
     grid-template-columns: 200px auto;
-    grid-template-rows: 111px 100vh 140px;
+    grid-template-rows: 111px 1fr 140px;
+    overflow: hidden;
+    height: 100vh;
 
 }
 

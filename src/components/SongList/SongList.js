@@ -1,12 +1,11 @@
 import React from 'react';
 import "./SongList.css";
 
-function SongList({songs, onSelectSong}){ 
+function SongList({styleName, songs, onSelectSong, playlistName}){ 
 
     return(
-        <div className="songlist">
-            <h1 className="songlist__title">Playlist Title</h1>
-            <hr />
+        <div className={styleName}>
+            <h1 className="songlist__title">{playlistName ? playlistName : "Songs"}</h1>
             {
                 songs.map((item) =>  {
                     const { track } = item;
@@ -21,7 +20,6 @@ function SongList({songs, onSelectSong}){
                             <p className="songlist__artist">{song.artists[0].name}</p>
                         </div>
                         <p className="songlist__album">{song.album.name}</p>
-                        <hr className="songlist__separator"/>
                     </div>)
                 })
             }

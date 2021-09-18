@@ -1,17 +1,17 @@
 .footer{
-   position: fixed; 
    bottom: 0;
    left:0;
    width:100vw;
    height: 120px;
    justify-content: space-evenly;
    border-top-style: solid;
-   border-color: white;
+   border-top-width: thin;
+   border-color: gray;
    padding: 10px;
    background-color: #181818;
    grid-row: 3 / span 1;
    display: grid;
-   grid-template-columns: 450px 500px 450px;
+   grid-template-columns: 1fr 245px 1fr;
    align-items: center;
 }
 

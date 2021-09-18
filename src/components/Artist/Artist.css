@@ -1,6 +1,7 @@
 .artist{
-    background-color: blueviolet;
     padding: 40px;
+    display: flex;
+    justify-content: center;
 }
 
 .artist__photo{
