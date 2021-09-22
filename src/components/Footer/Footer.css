@@ -33,4 +33,20 @@
 .footer__center{
     display: flex;
     justify-content: center;
+    justify-content: space-around;
+    
+}
+
+.material-icons.md-light { 
+    color: rgba(255, 255, 255, 1); 
+    font-size: 36px;
+}
+
+button{
+    background-color: transparent;
+    border: none;
+}
+
+button:hover{
+    cursor: pointer;
 }

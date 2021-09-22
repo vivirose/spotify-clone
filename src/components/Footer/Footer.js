@@ -61,12 +61,12 @@ function Footer({trackId = '0iifbrIaoCheb4HbbH4bwP'}){
                     </div>
                     </div>
                     <div className="footer__center">
-                        <button onClick={() => changeSong("previous")}><i className="material-icons">skip_previous</i></button>
+                        <button onClick={() => changeSong("previous")}><i className="material-icons md-light">skip_previous</i></button>
                         <button onClick={togglePlay}> 
-                        {isPlaying ? <i className="material-icons">pause_circle</i> :
-                         <i className="material-icons">play_circle_outline</i>}
+                        {isPlaying ? <i className="material-icons md-light">pause_circle</i> :
+                         <i className="material-icons md-light">play_circle_outline</i>}
                         </button>
-                        <button onClick={() => changeSong("next")}><i className="material-icons">skip_next</i></button>
+                        <button onClick={() => changeSong("next")}><i className="material-icons md-light">skip_next</i></button>
                     </div>
                 </>)
 
