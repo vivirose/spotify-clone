@@ -1,2 +1,2 @@
 
-# this is a clone of Spotify
+# this is a clone of Spotify version 2
