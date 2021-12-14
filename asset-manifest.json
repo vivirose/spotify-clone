@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/spotify-clone/static/css/main.16064e76.chunk.css",
+    "main.js": "/spotify-clone/static/js/main.372ed545.chunk.js",
+    "main.js.map": "/spotify-clone/static/js/main.372ed545.chunk.js.map",
+    "runtime-main.js": "/spotify-clone/static/js/runtime-main.5df4eed0.js",
+    "runtime-main.js.map": "/spotify-clone/static/js/runtime-main.5df4eed0.js.map",
+    "static/js/2.c23f955f.chunk.js": "/spotify-clone/static/js/2.c23f955f.chunk.js",
+    "static/js/2.c23f955f.chunk.js.map": "/spotify-clone/static/js/2.c23f955f.chunk.js.map",
+    "static/js/3.e5f52b49.chunk.js": "/spotify-clone/static/js/3.e5f52b49.chunk.js",
+    "static/js/3.e5f52b49.chunk.js.map": "/spotify-clone/static/js/3.e5f52b49.chunk.js.map",
+    "index.html": "/spotify-clone/index.html",
+    "static/css/main.16064e76.chunk.css.map": "/spotify-clone/static/css/main.16064e76.chunk.css.map",
+    "static/js/2.c23f955f.chunk.js.LICENSE.txt": "/spotify-clone/static/js/2.c23f955f.chunk.js.LICENSE.txt",
+    "static/media/vivien.5052eaa5.png": "/spotify-clone/static/media/vivien.5052eaa5.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.5df4eed0.js",
+    "static/js/2.c23f955f.chunk.js",
+    "static/css/main.16064e76.chunk.css",
+    "static/js/main.372ed545.chunk.js"
+  ]
+}
