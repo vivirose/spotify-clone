@@ -1,5 +1,5 @@
 export const authEndpoint = "https://accounts.spotify.com/authorize";
-const redirectUri = window.location.ref;
+const redirectUri = window.location.href;
 const clientId = '0e25f14500c1485d9e1a7deda23dcac1'; // hotmail'208553d2bcaa4aa5b5938b3e5d5adbeb'; // vivien.marconlin@gmail"0e25f14500c1485d9e1a7deda23dcac1";
 
 const scopes = [
