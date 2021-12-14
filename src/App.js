@@ -21,7 +21,7 @@ function App() {
       setToken(_token);
     
     }
-  })
+  }, [])
 
   return (
     <UserContext.Provider value={userValues}>
